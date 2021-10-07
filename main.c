@@ -5,6 +5,7 @@
 #include "stdio.h"
 #include "bakery.h"
 int main(){
+    char * Tastes[7] = {"Chocolate", "Vanilla", "Apple", "Fudge", "Strawberry", "Banana","Orange"};
     allocs = 0;
     Element_str* l_tastes;
     Order_Queue* q_orders = (Order_Queue*)malloc(sizeof(Order_Queue));

@@ -32,6 +32,7 @@ typedef struct Tasting_Queue{
 int allocs;
 //end debug var
 
+
 // Start Prototype declaration
 Element_str* initialize_tastes(int size, ...);
 void display_list_Element_str(Element_str* tastes);
