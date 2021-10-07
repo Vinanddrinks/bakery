@@ -21,7 +21,7 @@ typedef struct Element_cake{
     struct Element_str* next;
 }Element_cake;
 typedef struct Order_Queue{
-    //Todo
+    Element_str* all_orders_head;
 }Order_Queue;
 typedef struct Tasting_Queue{
     //Todo
@@ -32,7 +32,7 @@ typedef struct Tasting_Queue{
 int allocs;
 //end debug var
 
-// Start Prototype déclaration
+// Start Prototype declaration
 
-// End Prototype déclaration
+// End Prototype declaration
 #endif //BAKERY_BAKERY_H
