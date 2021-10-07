@@ -10,7 +10,7 @@ typedef struct Element_str{
     struct Element_str* next;
 }Element_str;
 typedef struct Taste_Stack{
-    //Todo
+    Element_str* real_tastes;
 }Taste_Stack;
 typedef struct Cake{
     Element_str* order;
@@ -18,13 +18,13 @@ typedef struct Cake{
 }Cake;
 typedef struct Element_cake{
     Cake* cake;
-    struct Element_str* next;
+    struct Element_cake* next;
 }Element_cake;
 typedef struct Order_Queue{
     Element_str* all_orders_head;
 }Order_Queue;
 typedef struct Tasting_Queue{
-    //Todo
+    Element_cake* all_cakes_head;
 }Tasting_Queue;
 
 //str def end
