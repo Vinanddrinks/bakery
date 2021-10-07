@@ -33,6 +33,11 @@ int allocs;
 //end debug var
 
 // Start Prototype declaration
-
+Element_str* initialize_tastes(int size, ...);
+void display_list_Element_str(Element_str* tastes);
+Element_str* create_taste(char text[50]);
+int size_of_element_str(Element_str* tastes);
+void free_list_Element_str(Element_str* tastes);
+void pass_order(char order[50], Order_Queue* f_orders);
 // End Prototype declaration
 #endif //BAKERY_BAKERY_H
