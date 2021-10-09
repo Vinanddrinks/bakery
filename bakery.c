@@ -54,8 +54,44 @@ void pass_order(char order[50], Order_Queue* f_orders) {
         f_orders->all_orders_head = new;
     }
 }
+
+char* taste_processor(char taste){
+    switch (taste) {
+        case "C" :
+            return "Chocolate";
+        case "V" :
+            return "Vanilla";
+        case "S":
+            return "Strawberry";
+        case "O" :
+            return "Orange";
+        case "A" :
+            return "Apple";
+        case "B":
+            return "Banana";
+        case "F" :
+            return "Fudge";
+        default:
+            return "";
+    }
+}
 Element_str* process_order(Order_Queue* q_orders){
     //Todo
+    if (q_order != NULL && q_orders->all_orders_head != NULL){
+        Order_Queue* temp = q_orders;
+        while (temp->all_orders_head->next != NULL) {
+            temp->all_orders_head = temp->all_orders_head->next;
+        }
+        Element_str* processed_order, *temp1;
+        temp1 = processed_order;
+        int i = 0 ;
+        while (temp->all_orders_head->text[i] != '\0'){
+            temp1 = create_taste(taste_processor(temp->all_orders_head->text[i]));
+            temp1 = temp1->next;
+            i++;
+        }
+
+    }
 }
 Cake* create_cake(Element_str* order){
     //Todo
