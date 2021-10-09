@@ -54,3 +54,18 @@ void pass_order(char order[50], Order_Queue* f_orders) {
         f_orders->all_orders_head = new;
     }
 }
+Element_str* process_order(Order_Queue* q_orders){
+    //Todo
+}
+Cake* create_cake(Element_str* order){
+    //Todo
+}
+void build_cake(Cake* cake, Element_str* l_tastes) {
+    //Todo
+}
+void deliver(Cake* cake, Tasting_Queue* q_tasting){
+    //Todo
+}
+void tasting(Tasting_Queue* q_tasting, int nb_parts){
+    //Todo
+}

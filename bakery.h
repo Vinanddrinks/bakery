@@ -34,11 +34,16 @@ int allocs;
 
 
 // Start Prototype declaration
-Element_str* initialize_tastes(int size, ...);
-void display_list_Element_str(Element_str* tastes);
-Element_str* create_taste(char text[50]);
-int size_of_element_str(Element_str* tastes);
-void free_list_Element_str(Element_str* tastes);
-void pass_order(char order[50], Order_Queue* f_orders);
+Element_str* initialize_tastes(int size, ...) ;
+void display_list_Element_str(Element_str* tastes) ;
+Element_str* create_taste(char text[50]) ;
+int size_of_element_str(Element_str* tastes) ;
+void free_list_Element_str(Element_str* tastes) ;
+void pass_order(char order[50], Order_Queue* f_orders) ;
+Element_str* process_order(Order_Queue* q_orders) ;
+Cake* create_cake(Element_str* order) ;
+void build_cake(Cake* cake, Element_str* l_tastes) ;
+void deliver(Cake* cake, Tasting_Queue* q_tasting) ;
+void tasting(Tasting_Queue* q_tasting, int nb_parts) ;
 // End Prototype declaration
 #endif //BAKERY_BAKERY_H
