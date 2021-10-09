@@ -1,0 +1,3 @@
+/Users/giulianoriccardi/CLionProjects/bakery/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/giulianoriccardi/CLionProjects/bakery/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/giulianoriccardi/CLionProjects/bakery/cmake-build-debug/CMakeFiles/Prjt_patissier.dir
