@@ -40,10 +40,15 @@ Element_str* create_taste(char text[50]) ;
 int size_of_element_str(Element_str* tastes) ;
 void free_list_Element_str(Element_str* tastes) ;
 void pass_order(char order[50], Order_Queue* f_orders) ;
+char* taste_processor(char taste);
 Element_str* process_order(Order_Queue* q_orders) ;
+int is_in_stock(Element_str* taste, Element_str* l_tastes);
 Cake* create_cake(Element_str* order) ;
 void build_cake(Cake* cake, Element_str* l_tastes) ;
+Element_cake * create_element_cake(Cake* cake);
 void deliver(Cake* cake, Tasting_Queue* q_tasting) ;
 void tasting(Tasting_Queue* q_tasting, int nb_parts) ;
+
+
 // End Prototype declaration
 #endif //BAKERY_BAKERY_H
