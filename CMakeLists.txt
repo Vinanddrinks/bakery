@@ -1,6 +1,4 @@
 cmake_minimum_required(VERSION 3.19)
-project(Prjt_patissier C)
-
+project(Bakery)
 set(CMAKE_C_STANDARD 99)
-
-add_executable(Prjt_patissier main.c)
+add_executable(Bakery main.c bakery.h bakery.c)

@@ -25,7 +25,7 @@ void free_list_Element_str(Element_str* tastes){
     if (tastes!=NULL) {
         free_list_Element_str(tastes->next);
         free(tastes);
-        --allocs;
+        allocs--;
     }
 }
 Element_str* initialize_tastes(int size, ...){
@@ -57,22 +57,22 @@ void pass_order(char order[50], Order_Queue* f_orders) {
 
 char* taste_processor(char taste){
     switch (taste) {
-        case "C" :
+        case 'C' :
             return "Chocolate";
-        case "V" :
+        case 'V' :
             return "Vanilla";
-        case "S":
+        case 'S':
             return "Strawberry";
-        case "O" :
+        case 'O' :
             return "Orange";
-        case "A" :
+        case 'A' :
             return "Apple";
-        case "B":
+        case 'B':
             return "Banana";
-        case "F" :
+        case 'F' :
             return "Fudge";
         default:
-            return "";
+            return "Unknown Taste";
     }
 }
 Element_str* process_order(Order_Queue* q_orders){
