@@ -28,6 +28,22 @@ void free_list_Element_str(Element_str* tastes){
         allocs--;
     }
 }
+void free_cake(Cake** cake){
+    free_list_Element_str((*cake)->s_tastes->real_tastes);
+    free((*cake)->s_tastes);
+    allocs--;
+    free(*cake);
+    allocs--;
+    *cake = NULL;
+}
+void eat_slices(Cake* cake, int number_of_slice){
+    for(int i = 0; i < number_of_slice;i++){
+        Element_str * slice_to_free = cake->s_tastes->real_tastes;
+        cake->s_tastes->real_tastes = cake->s_tastes->real_tastes->next;
+        free(slice_to_free);
+        allocs--;
+    }
+}
 Element_str* initialize_tastes(int size, ...){
     Element_str* tastes_list = NULL,*head = NULL;
     va_list valist;
