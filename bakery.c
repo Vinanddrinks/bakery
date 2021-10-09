@@ -183,7 +183,27 @@ void deliver(Cake* cake, Tasting_Queue* q_tasting){
             }
     }
 }
+void taste_cake(Cake* cake, int nb_parts){
+    int size_cake = size_of_element_str(cake->s_tastes->real_tastes);
+    if (nb_parts >= size_cake){
+        free_cake(&cake);
+    }
+    else if(nb_parts>0){
+        eat_slices(cake, nb_parts);
+    }
+}
 void tasting(Tasting_Queue* q_tasting, int nb_parts){
-    //Todo
-
+    if (q_tasting!=NULL){
+        Element_cake * temp = q_tasting->all_cakes_head;
+        while (temp->next != NULL){
+            temp = temp->next;
+        }
+        taste_cake(temp->cake, nb_parts);
+        if (temp->cake == NULL){
+            Element_cake * old = temp;
+            temp = NULL;
+            free(old);
+            allocs --;
+        }
+    }
 }

@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/josep/CLionProjects/bakery/bakery.h
+
+C:/Users/josep/CLionProjects/bakery/main.c
+stdlib.h
+C:/Users/josep/CLionProjects/bakery/stdlib.h
+stdio.h
+C:/Users/josep/CLionProjects/bakery/stdio.h
+bakery.h
+C:/Users/josep/CLionProjects/bakery/bakery.h
+

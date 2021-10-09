@@ -30,15 +30,17 @@ int main(){
     deliver(cake, q_tasting);
     display_list_Element_str(q_tasting->all_cakes_head->cake->s_tastes->real_tastes);
 //    display_list_Element_str(hello);
+    q_tasting = NULL;
+    tasting(q_tasting, 3);
 
 
-//    free_list_Element_str(l_tastes);
+    free_list_Element_str(l_tastes);
 //    free_list_Element_str(hello);
-//    free_list_Element_str(q_orders->all_orders_head);
-//    free(q_orders);
-//    --allocs;
-//    free(q_tasting);
-//    --allocs;
+    free_list_Element_str(q_orders->all_orders_head);
+    free(q_orders);
+    --allocs;
+    free(q_tasting);
+    --allocs;
 //    free_list_Element_str(cake->s_tastes->real_tastes);
 //    free(cake->s_tastes);
 //    --allocs;
