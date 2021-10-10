@@ -1,6 +1,8 @@
 //
 // Created by Vinanddrinks,Riccardis and Djay on 07/10/2021.
 //
+// Vincent Labouret, Giuliano Riccardi, Joseph Beaumont - L2 INT2
+
 #include "stdlib.h"
 #include "stdio.h"
 #include "bakery.h"
@@ -21,19 +23,15 @@ int main(){
     // We begin to test our coded functions
     printf("Here's the list of available tastes:\n");
     display_list_Element_str(l_tastes);
-    printf("%d\n",size_of_element_str(l_tastes));
-    pass_order("CSV", q_orders);
-//    display_list_Element_str(q_orders->all_orders_head);
-//    display_list_Element_str(q_orders->all_orders_head);
-    Element_str* hello = process_order(q_orders);
-//    display_list_Element_str(hello);
-    Cake* cake = create_cake(hello);
+    printf("The number of available tastes is : %d.\n",size_of_element_str(l_tastes));
+    pass_order("CBSSSBAAV", q_orders);
+    Cake* cake = create_cake(process_order(q_orders));
+    // We display the order processed to make sure it is working
     display_list_Element_str(cake->order);
     build_cake(cake, l_tastes);
     // We display the tastes in the cake making sure that the first taste added is now the base of the cake so the last
     // one inside the cake
     display_list_Element_str(cake->s_tastes->real_tastes);
-    q_tasting->all_cakes_head=NULL;
     deliver(cake, q_tasting);
     // We check to see if our cake is in the tasting queue after we deliver it
     display_list_Element_str(q_tasting->all_cakes_head->cake->s_tastes->real_tastes);
@@ -42,10 +40,10 @@ int main(){
     tasting(q_tasting, 3);
 
 
+    // We free all the permanent variables used during the cake confection
     free_list_Element_str(&l_tastes);
-//    free_list_Element_str(hello);
     free_list_Element_str(&q_orders->all_orders_head);
-//    free(q_orders);
+    free(q_orders);
     --allocs;
     free_list_Element_cake(&q_tasting->all_cakes_head);
     free(q_tasting);
