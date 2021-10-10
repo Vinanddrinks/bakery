@@ -1,11 +1,14 @@
 //
-// Created by Vinanddrinks on 07/10/2021.
+// Created by Vinanddrinks, Riccardis and Djay on 07/10/2021.
 //
+// Vincent Labouret, Giuliano Riccardi, Joseph Beaumont - L2 INT2
+
 #include "bakery.h" // we include the header for our structures
 #include "stdlib.h" // we include it to manage memory
 #include "stdio.h"  // here to manage input and output operation
 #include "string.h" // here to manage strings
 #include "stdarg.h" // to manage non predefined argument function call
+
 Element_str* create_taste(char order[50]){
     //this function allocate and fill with the given parameter an Element_str
     // and return its pointer
@@ -34,16 +37,6 @@ void free_list_Element_str(Element_str** tastes){
         allocs--;
     }
 }
-void free_list_Element_cake(Element_cake ** cake){
-    //this function free a cake SLL(Element_cake)and put is head and next value to NULL so other function know when
-    //an cake SLL is unassigned
-    if (*cake!=NULL) {
-        free_list_Element_cake(&(*cake)->next);
-        free(*cake);
-        *cake = NULL;
-        allocs--;
-    }
-}
 void free_cake(Cake** cake){
     //this function function is used to free a built cake (no order to free)
     // as the 3 structures allocated consecutively we need to free them
@@ -54,6 +47,17 @@ void free_cake(Cake** cake){
     free(*cake);
     allocs--;
     *cake = NULL;
+}
+void free_list_Element_cake(Element_cake ** cake){
+    //this function free a cake SLL(Element_cake)and put is head and next value to NULL so other function know when
+    //an cake SLL is unassigned
+    if (*cake!=NULL) {
+        free_list_Element_cake(&(*cake)->next);
+        free_cake(&(*cake)->cake);
+        free(*cake);
+        *cake = NULL;
+        allocs--;
+    }
 }
 void eat_slices(Cake* cake, int number_of_slice){
     // Everytime we eat a slice we free the taste we ate from the cake

@@ -1,6 +1,7 @@
 //
-// Created by Vinanddrinks on 07/10/2021.
+// Created by Vinanddrinks, Riccardis and Djay on 07/10/2021.
 //
+// Vincent Labouret, Giuliano Riccardi, Joseph Beaumont - L2 INT2
 
 #ifndef BAKERY_BAKERY_H
 #define BAKERY_BAKERY_H

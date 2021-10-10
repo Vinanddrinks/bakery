@@ -4,8 +4,12 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "bakery.h"
+
 int main(){
+    // We used a global variable "allocs" to keep a track of our memory allocations and to make sure we do not have any
+    // memory leaks
     allocs = 0;
+    // We define permanent variables
     Element_str* l_tastes;
     Order_Queue* q_orders = (Order_Queue*)malloc(sizeof(Order_Queue));
     ++allocs;
@@ -14,6 +18,8 @@ int main(){
     ++allocs;
     q_tasting->all_cakes_head = NULL;
     l_tastes = initialize_tastes(7,"Chocolate", "Vanilla","Apple", "Fudge", "Strawberry", "Banana","Orange");
+    // We begin to test our coded functions
+    printf("Here's the list of available tastes:\n");
     display_list_Element_str(l_tastes);
     printf("%d\n",size_of_element_str(l_tastes));
     pass_order("CSV", q_orders);
@@ -23,12 +29,16 @@ int main(){
 //    display_list_Element_str(hello);
     Cake* cake = create_cake(hello);
     display_list_Element_str(cake->order);
-//    display_list_Element_str(cake->s_tastes->real_tastes);
     build_cake(cake, l_tastes);
+    // We display the tastes in the cake making sure that the first taste added is now the base of the cake so the last
+    // one inside the cake
     display_list_Element_str(cake->s_tastes->real_tastes);
     q_tasting->all_cakes_head=NULL;
     deliver(cake, q_tasting);
+    // We check to see if our cake is in the tasting queue after we deliver it
     display_list_Element_str(q_tasting->all_cakes_head->cake->s_tastes->real_tastes);
+    // Make sure you are eating the same amount of parts in your cake and all the cakes you created to avoid
+    // wasting food and memory leaks ( don't worry we covered memory leaks but not the wasted food :P )!
     tasting(q_tasting, 3);
 
 
@@ -40,20 +50,9 @@ int main(){
     free_list_Element_cake(&q_tasting->all_cakes_head);
     free(q_tasting);
     --allocs;
-//    q_orders->all_orders_head = NULL;
-    printf("%d\n",q_orders->all_orders_head);
 
-
-//    printf("%s->", l_tastes->text);
-//    l_tastes=l_tastes->next;
-//    printf("%s->", l_tastes->text);
-//    l_tastes=l_tastes->next;
-//    printf("%s->", l_tastes->text);
-//    l_tastes=l_tastes->next;
-//    printf("%s->", l_tastes->text);
-//    l_tastes=l_tastes->next;
-//    printf("%s->", l_tastes->text);
-//    l_tastes=l_tastes->next;
+    // We print our allocs global variable to make sure we didn't miss any memory leaks
     printf("current dynamic memory allocated : %d \n",allocs);
     return 0;
+    // Everything seems to work fine ! Yay !
 }
