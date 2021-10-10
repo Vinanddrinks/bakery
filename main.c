@@ -46,6 +46,8 @@ int main(){
 //    --allocs;
 //    free(cake);
 //    --allocs;
+//    free(l_tastes);
+//    -- allocs;
 
 
 
