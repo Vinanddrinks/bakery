@@ -37,6 +37,7 @@ void free_cake(Cake** cake){
     *cake = NULL;
 }
 void eat_slices(Cake* cake, int number_of_slice){
+    // Everytime we eat a slice we free the taste we ate from the cake
     for(int i = 0; i < number_of_slice;i++){
         Element_str * slice_to_free = cake->s_tastes->real_tastes;
         cake->s_tastes->real_tastes = cake->s_tastes->real_tastes->next;
@@ -64,6 +65,7 @@ int size_of_element_str(Element_str* tastes) {
     }else return 0;
 }
 void pass_order(char order[50], Order_Queue* f_orders) {
+    // We only add it to the order if we have less than 10 orders in our Order queue
     if (size_of_element_str(f_orders->all_orders_head)<10) {
         Element_str *new = create_taste(order);
         new->next = f_orders->all_orders_head;
@@ -147,7 +149,8 @@ void build_cake(Cake* cake, Element_str* l_tastes) {
     if (cake != NULL && l_tastes != NULL){
         Element_str * temp = cake->order;
         while(temp != NULL){
-
+            // We check to see if the taste chosen is available and if so we add it to the cake otherwise we skip this
+            // flavour
             if (is_in_stock(temp, l_tastes) == 1){
                 add_to_cake(cake, temp);
             }
@@ -156,13 +159,19 @@ void build_cake(Cake* cake, Element_str* l_tastes) {
     }
 }
 Element_cake * create_element_cake(Cake* cake){
+    // if we send a cake we do something otherwise we do nothing
     if(cake!=NULL){
+        // We allocate the memory for this Element_cake
         Element_cake* new = (Element_cake*)malloc(sizeof(Element_cake));
+        allocs ++;
+        // We put the cake inside
         new->cake = cake;
+        // We set the next value to NULL
         new->next = NULL;
         return new;
     }
 }
+
 void deliver(Cake* cake, Tasting_Queue* q_tasting){
     // We only deliver when we finished the cake
     if (cake != NULL && q_tasting != NULL){
@@ -184,21 +193,31 @@ void deliver(Cake* cake, Tasting_Queue* q_tasting){
     }
 }
 void taste_cake(Cake* cake, int nb_parts){
+    // First we fetch the size of the cake, in other words, how many parts it has
     int size_cake = size_of_element_str(cake->s_tastes->real_tastes);
+    // If the number of parts we are tasting is equal or superior to the number of parts we have in the cake we can
+    // say that the cake was finished so we free this cake from the memory
     if (nb_parts >= size_cake){
         free_cake(&cake);
     }
+    // otherwise if the number of parts is between 0 and the size of the cake we only eat some slices or parts using
+    // our eat_slice function
     else if(nb_parts>0){
         eat_slices(cake, nb_parts);
     }
+    // If the user tastes 0 or a negative number of parts we do nothing to the cake
 }
 void tasting(Tasting_Queue* q_tasting, int nb_parts){
     if (q_tasting!=NULL){
+        // We only taste when there is something on the tasting queue, otherwise we cannot taste anything
         Element_cake * temp = q_tasting->all_cakes_head;
+        // We go to the oldest cake in the queue because the oldest in should be the first out
         while (temp->next != NULL){
             temp = temp->next;
         }
+        // We taste the cake using our tasting function that allows us to eat only some slices
         taste_cake(temp->cake, nb_parts);
+        // If we eat the whole cake we can then free the Element_cake containing the empty cake
         if (temp->cake == NULL){
             Element_cake * old = temp;
             temp = NULL;
