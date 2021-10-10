@@ -1,3 +1,0 @@
-C:/Users/josep/CLionProjects/bakery/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/josep/CLionProjects/bakery/cmake-build-debug/CMakeFiles/Bakery.dir
-C:/Users/josep/CLionProjects/bakery/cmake-build-debug/CMakeFiles/edit_cache.dir

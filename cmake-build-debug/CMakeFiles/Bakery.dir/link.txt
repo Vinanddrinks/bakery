@@ -1,3 +1,0 @@
-C:\Users\josep\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5284.51\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\Bakery.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\Bakery.dir/objects.a @CMakeFiles\Bakery.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\Bakery.dir/objects.a -Wl,--no-whole-archive -o Bakery.exe -Wl,--out-implib,libBakery.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Bakery.dir\linklibs.rsp
